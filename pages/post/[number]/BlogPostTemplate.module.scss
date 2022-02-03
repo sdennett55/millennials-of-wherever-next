@@ -1,0 +1,124 @@
+.main {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 2em;
+  list-style: none;
+  counter-reset: my-awesome-counter;
+}
+
+.entry {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  counter-increment: my-awesome-counter;
+  font-size: 0.7em;
+
+  @media (min-width: 960px) {
+    font-size: 1em;
+  }
+
+  &::before {
+    content: counters(my-awesome-counter, ".", decimal-leading-zero) ".";
+    display: inline-block;
+    font-weight: bold;
+    font-size: 8em;
+    letter-spacing: -0.05em;
+  }
+}
+.entryKey {
+  width: 52px;
+  display: inline-block;
+  font-weight: bold;
+}
+.entryIntro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1em;
+  border-top: 1px solid black;
+  padding-top: 2em;
+  @media (min-width: 960px) {
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 2em;
+  }
+}
+.date {
+  font-style: italic;
+  letter-spacing: 0.3em;
+}
+.entryHeading {
+  display: inline-block;
+  padding: 0 1em;
+
+  &:hover {
+    img {
+      transform: scale(1.1);
+
+      @media (min-width: 960px) {
+        transform: translate(10px, -10px) scale(1.2);
+      }
+    }
+  }
+}
+.entryPic {
+  position: relative;
+  border-radius: 50%;
+
+  img {
+    background: var(--red);
+    transition: transform 0.25s;
+    max-width: 100%;
+  }
+}
+.entryList {
+  width: 80%;
+  list-style: none;
+  padding: 0;
+  background: var(--bg-color);
+  padding: 1em;
+  line-height: 1.4;
+  border: 1px solid black;
+  margin: 0 auto;
+  margin-top: -40px;
+  font-size: 0.8rem;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    top: 10px;
+    left: 10px;
+    height: 100%;
+    z-index: -1;
+    border: 1px solid black;
+  }
+}
+.entryTitle {
+  font-size: 3em;
+  text-transform: uppercase;
+  line-height: 0.8;
+  letter-spacing: -0.05em;
+  margin: 1em 0;
+  max-width: 500px;
+}
+.entrySubtitle {
+  align-self: start;
+  margin: 2em auto 0;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  max-width: 570px;
+  width: 100%;
+}
+.entryCopy {
+  line-height: 1.4;
+  letter-spacing: normal;
+  font-size: 1.3rem;
+  max-width: 570px;
+  margin: 1em auto;
+}

@@ -10,14 +10,16 @@ type matterData = {
 };
 type PostData = {
   id: string;
+  index: string;
 } & matterData;
 
 export function getSortedPostsData() {
   // Get file names under /posts
   const fileNames = fs.readdirSync(postsDirectory);
-  const allPostsData: PostData[] = fileNames.map((fileName) => {
+  const allPostsData: PostData[] = fileNames.map((fileName, i) => {
     // Remove ".md" from file name to get id
     const id = fileName.replace(/\.md$/, "");
+    const index = i + 1 < 99 ? `0${i + 1}` : `${i + 1}`;
 
     // Read markdown file as string
     const fullPath = path.join(postsDirectory, fileName);
@@ -29,7 +31,9 @@ export function getSortedPostsData() {
     // Combine the data with the id
     return {
       id,
+      index,
       ...(matterResult.data as matterData),
+      content: matterResult.content as string,
     };
   });
   // Sort posts by date

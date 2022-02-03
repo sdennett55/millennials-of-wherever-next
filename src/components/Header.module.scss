@@ -1,0 +1,77 @@
+.navigation {
+  display: flex;
+  align-items: center;
+}
+.hamburgerMenuIcon {
+  appearance: none;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  width: 40px;
+  margin-left: 1em;
+  height: 40px;
+  cursor: pointer;
+  color: black;
+  transition: color 0.25s, stroke 0.25s;
+
+  &White {
+    stroke: white;
+  }
+
+  &:hover {
+    color: var(--red);
+    stroke: var(--red);
+  }
+}
+.hamburgerMenu {
+  position: fixed;
+  width: 80%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  max-width: 400px;
+  background: black;
+  padding-right: 3em;
+  overflow: hidden;
+  z-index: 1;
+  transform: translateX(-100%);
+  transition: opacity 0.25s;
+  opacity: 0;
+  color: white;
+  &IsOpen {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.navList {
+  text-align: right;
+  text-transform: uppercase;
+  margin-top: 3em;
+  list-style: none;
+}
+.navItem {
+  margin: 1em 0;
+}
+.navLink {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2em;
+  font-weight: bold;
+  transition: color 0.25s;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+    color: var(--red);
+  }
+}
+.navHeader {
+  display: flex;
+  align-items: center;
+}
+.header {
+  display: flex;
+  margin: 1.5em 0 0;
+}

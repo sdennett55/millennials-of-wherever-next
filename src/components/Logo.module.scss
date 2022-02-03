@@ -1,0 +1,38 @@
+.logoLink {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.25s;
+
+  &:hover,
+  &:focus {
+    color: var(--red);
+    text-decoration: none;
+  }
+}
+.logo {
+  font-size: 2em;
+  text-transform: uppercase;
+  display: block;
+  position: relative;
+  text-align: right;
+  margin: 0.83em 0;
+  margin-left: 0.5em;
+  line-height: 0.8;
+  letter-spacing: -0.05em;
+  font-weight: bold;
+
+  &White {
+    position: relative;
+    z-index: 99999;
+    padding-top: 0.75em;
+  }
+
+  &Wherever {
+    position: relative;
+    display: block;
+  }
+
+  @media (min-width: 960px) {
+    font-size: 2.25em;
+  }
+}
